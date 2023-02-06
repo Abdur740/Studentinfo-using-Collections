@@ -16,7 +16,7 @@ import java.util.Comparator;
 import java.util.logging.Logger;
 
 
-class student{
+class Student{
     String name;
     int age;
     double gpa;
@@ -30,7 +30,7 @@ class student{
     public double getGpa() {
         return gpa;
     }
-    student(String name, int age, double gpa){
+    Student(String name, int age, double gpa){
         this.name = name;
         this.age = age;
         this.gpa = gpa;
@@ -40,14 +40,14 @@ class student{
 public class Studenttest{
     public static final Logger LOGGER = Logger.getLogger("InfoLogging");
     public static void main(String[] args) {
-        ArrayList<student> sdlist = new ArrayList<student>();
+        ArrayList<Student> sdlist = new ArrayList<Student>();
         Scanner sc = new Scanner(System.in);   
         try{     
         while(true){
         LOGGER.info("\n1.Update\n2.Exit\nEnter choice: ");
         int choice = sc.nextInt();
         if(choice == 2){
-            if(sdlist.size()==0){
+            if(sdlist.isEmpty()){
                 LOGGER.info("No data's present.");
             }
             LOGGER.info("Student detailes updated successfully.");
@@ -69,7 +69,7 @@ public class Studenttest{
         LOGGER.info("Enter gpa: ");
         double gpa = sc.nextDouble();
         
-        student stuobj1 = new student(name,age,gpa);
+        Student stuobj1 = new Student(name,age,gpa);
         sdlist.add(stuobj1);
            
         }
@@ -77,14 +77,14 @@ public class Studenttest{
             String print = "Name: "+sdlist.get(i).getName()+" Age: "+sdlist.get(i).getAge()+" GPA: "+sdlist.get(i).getGpa();
         LOGGER.info(print);
         }
-        Collections.sort(sdlist,new Comparator<student>()
+        Collections.sort(sdlist,new Comparator<Student>()
         {
-            public int compare(student s1,student s2)
+            public int compare(Student s1,Student s2)
             {
                 return Double.compare(s2.getGpa(),s1.getGpa());
             }
         });
-        if(sdlist.size()>=1){
+        if(!sdlist.isEmpty()){
             LOGGER.info("Sorted database. Based on GPA");
             for(int i=0; i<sdlist.size(); i++){
             String print1 = "Name: "+sdlist.get(i).getName()+" Age: "+sdlist.get(i).getAge()+" GPA: "+sdlist.get(i).getGpa();
