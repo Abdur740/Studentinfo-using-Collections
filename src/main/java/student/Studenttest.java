@@ -43,7 +43,8 @@ public class Studenttest{
         ArrayList<Student> sdlist = new ArrayList<Student>();
         Scanner sc = new Scanner(System.in);   
         try{     
-        while(true){
+        boolean loopexit=true;
+        while(loopexit == true){
         LOGGER.info("\n1.Update\n2.Exit\nEnter choice: ");
         int choice = sc.nextInt();
         if(choice == 2){
@@ -51,27 +52,25 @@ public class Studenttest{
                 LOGGER.info("No data's present.");
             }
             LOGGER.info("Student detailes updated successfully.");
-            break;
+            loopexit = false;
         }
         else if(choice ==1 ){
             LOGGER.info("Enter details...");
+            LOGGER.info("Enter name: ");
+            String name = sc.next();      
+            
+            LOGGER.info("Enter age: ");
+            int age = sc.nextInt();
+            
+            LOGGER.info("Enter gpa: ");
+            double gpa = sc.nextDouble();
+
+            Student stuobj1 = new Student(name,age,gpa);
+            sdlist.add(stuobj1);
         }
         else{
             LOGGER.info("Enter a valid option (1/2):");
-            continue;
         }
-        LOGGER.info("Enter name: ");
-        String name = sc.next();      
-        
-        LOGGER.info("Enter age: ");
-        int age = sc.nextInt();
-        
-        LOGGER.info("Enter gpa: ");
-        double gpa = sc.nextDouble();
-        
-        Student stuobj1 = new Student(name,age,gpa);
-        sdlist.add(stuobj1);
-           
         }
         for(int i=0; i<sdlist.size(); i++){
             String print = "Name: "+sdlist.get(i).getName()+" Age: "+sdlist.get(i).getAge()+" GPA: "+sdlist.get(i).getGpa();
