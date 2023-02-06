@@ -44,7 +44,7 @@ public class Studenttest{
         Scanner sc = new Scanner(System.in);   
         try{     
         boolean loopexit=true;
-        while(loopexit == true){
+        while(loopexit){
         LOGGER.info("\n1.Update\n2.Exit\nEnter choice: ");
         int choice = sc.nextInt();
         if(choice == 2){
