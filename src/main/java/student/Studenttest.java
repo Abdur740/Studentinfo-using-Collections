@@ -15,28 +15,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.logging.Logger;
 
-
-class Student{
-    String name;
-    int age;
-    double gpa;
-    
-    public String getName() {
-        return name;
-    }
-    public int getAge() {
-        return age;
-    }
-    public double getGpa() {
-        return gpa;
-    }
-    Student(String name, int age, double gpa){
-        this.name = name;
-        this.age = age;
-        this.gpa = gpa;
-    }
-    
-}
 public class Studenttest{
     public static final Logger LOGGER = Logger.getLogger("InfoLogging");
     public static void main(String[] args) {
